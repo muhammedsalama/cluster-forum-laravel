@@ -17,6 +17,12 @@
                         @endforeach
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" class="form-control">
+                </div>
+
                 <div class="form-group">
                     <label for="content">Ask a Question!</label>
                     <textarea type="text" name="content" id="content" class="form-control" placeholder="Discussion body.."></textarea>

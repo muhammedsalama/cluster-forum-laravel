@@ -79,7 +79,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-
+                <br>
                 <a href="{{route('discussion.create')}}" class="btn btn-primary form-control">Create a discussion</a>
                 <hr>
 

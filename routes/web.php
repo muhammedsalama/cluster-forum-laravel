@@ -5,9 +5,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/discuss', function () {
-    return view('discuss');
-});
 
 Auth::routes();
 
@@ -35,6 +32,11 @@ Route::group(['middleware'=>'auth'],function (){
        'uses'=>'DiscussionController@store',
        'as'=>'discussion.store'
    ]);
+
+    Route::get('discussion/{slug}',[
+        'uses'=>'DiscussionController@show',
+        'as'=>'discussion'
+    ]);
 
 });
 

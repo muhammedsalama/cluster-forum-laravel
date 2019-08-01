@@ -10,7 +10,8 @@ class Discussion extends Model
       'user_id',
       'channel_id',
       'title',
-      'content'
+      'content',
+      'slug'
     ];
 
     public function channel(){
