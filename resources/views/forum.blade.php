@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 <img src="{{$disc->user->avatar}}" alt="avatar" width="45px" height="45px">&nbsp;
-                <span>{{$disc->user->name}}</span>
+                <span>{{$disc->user->name}} , <b>{{$disc->created_at->diffForHumans()}}</b>  </span>
                 <a href="{{route('discussion',['slug'=>$disc->slug])}}" class="btn float-sm-right">view</a>
             </div>
             <div class="card-body">
