@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -18,5 +19,14 @@ class UsersTableSeeder extends Seeder
             'avatar'=>asset('avatars/avatar.png'),
             'admin'=>1
         ]);
+
+        App\User::create([
+            'name'=>'ahmed',
+            'password'=>bcrypt('ahmed'),
+            'email'=>'ahmed@gmail.com',
+            'avatar'=>asset('avatars/avatar2.png'),
+            'admin'=>0
+        ]);
+
     }
 }
