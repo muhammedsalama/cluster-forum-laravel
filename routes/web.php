@@ -38,6 +38,13 @@ Route::group(['middleware'=>'auth'],function (){
         'as'=>'discussion'
     ]);
 
+    Route::get('/forum',[
+        'uses'=>'ForumController@index',
+        'as'=>'forum'
+    ]);
+
+
+
 });
 
 
