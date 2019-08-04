@@ -41,7 +41,11 @@
                 </p>
             </div>
             <div class="card-footer">
-                LIKE
+                @if($reply->is_liked_by_auth_user())
+                    <a href="/" class="btn btn-danger btn-sm">Dislike</a>
+                @else
+                    <a href="/" class="btn btn-success btn-sm">Like</a>
+                @endif
             </div>
         </div>
     @endforeach
