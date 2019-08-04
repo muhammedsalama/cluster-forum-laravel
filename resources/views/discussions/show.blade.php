@@ -46,4 +46,18 @@
         </div>
     @endforeach
 
+    <div class="card">
+        <div class="card card-body">
+            <form action="{{route('discussion.reply',['id'=>$disc->id])}}" method="post">
+                {{csrf_field()}}
+                <div class="form-group">
+                    <textarea type="text" class="form-control" placeholder="Add a reply" name="reply"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn float-right" type="submit">Leave a reply</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 @endsection

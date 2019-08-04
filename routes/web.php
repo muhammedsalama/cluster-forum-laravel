@@ -43,6 +43,10 @@ Route::group(['middleware'=>'auth'],function (){
         'as'=>'forum'
     ]);
 
+    Route::post('discussion/reply/{id}',[
+        'uses'=>'DiscussionController@reply',
+        'as'=>'discussion.reply'
+    ]);
 
 
 });
