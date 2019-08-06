@@ -12,17 +12,17 @@ class ChannelSeeder extends Seeder
      */
     public function run()
     {
-        $channel1 = ['title'=>'laravel'];
-        $channel2 = ['title'=>'php'];
-        $channel3 = ['title'=>'java'];
-        $channel4 = ['title'=>'c++'];
-        $channel5 = ['title'=>'javascript'];
-        $channel6 = ['title'=>'nodejs'];
-        $channel7 = ['title'=>'angularjs'];
-        $channel8 = ['title'=>'reactjs'];
-        $channel9 = ['title'=>'vuejs'];
-        $channel10 = ['title'=>'python'];
-        $channel11 = ['title'=>'asp.net'];
+        $channel1 = ['title'=>'laravel','slug'=>str_slug('laravel')];
+        $channel2 = ['title'=>'php','slug'=>str_slug('php')];
+        $channel3 = ['title'=>'java','slug'=>str_slug('java')];
+        $channel4 = ['title'=>'c++','slug'=>str_slug('c++')];
+        $channel5 = ['title'=>'javascript','slug'=>str_slug('javascript')];
+        $channel6 = ['title'=>'node js','slug'=>str_slug('node js')];
+        $channel7 = ['title'=>'angular js','slug'=>str_slug('angular js')];
+        $channel8 = ['title'=>'react js','slug'=>str_slug('react js')];
+        $channel9 = ['title'=>'vue js','slug'=>str_slug('vue js')];
+        $channel10 = ['title'=>'python','slug'=>str_slug('python')];
+        $channel11 = ['title'=>'asp.net','slug'=>str_slug('asp.net')];
 
 
         Channel::create($channel1);

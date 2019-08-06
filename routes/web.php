@@ -58,6 +58,11 @@ Route::group(['middleware'=>'auth'],function (){
         'as'=>'reply.dislike'
     ]);
 
+    Route::get('channel/{slug}',[
+        'uses'=>'ForumController@channel',
+        'as'=>'channel'
+    ]);
+
 
 });
 
