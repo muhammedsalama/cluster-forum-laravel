@@ -42,9 +42,9 @@
             </div>
             <div class="card-footer">
                 @if($reply->is_liked_by_auth_user())
-                    <a href="{{route('reply.dislike',['id'=>$reply->id])}}" class="btn btn-danger btn-sm">Dislike</a>
+                    <a href="{{route('reply.dislike',['id'=>$reply->id])}}" class="btn btn-danger btn-sm">Dislike <span class="badge">{{$reply->likes->count()}}</span> </a>
                 @else
-                    <a href="{{route('reply.like',['id'=>$reply->id])}}" class="btn btn-success btn-sm">Like</a>
+                    <a href="{{route('reply.like',['id'=>$reply->id])}}" class="btn btn-success btn-sm">Like <span class="badge">{{$reply->likes->count()}}</span></a>
                 @endif
             </div>
         </div>
