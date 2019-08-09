@@ -26,6 +26,10 @@
                 @if($disc->replies->count() > 1)
                     {{$disc->replies->count()}} <b>Replies</b>
                 @endif
+
+                <a href="{{route('channel',['slug'=>$disc->channel->slug])}}"
+                   class="float-right btn btn-sm ">{{$disc->channel->title}}</a>
+
             </div>
         </div>
         <br>

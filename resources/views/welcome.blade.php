@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Cluster
+                    <a href="/forum" style="text-decoration: none;color: #1b1e21">Cluster</a>
                 </div>
 
                 <div class="links">

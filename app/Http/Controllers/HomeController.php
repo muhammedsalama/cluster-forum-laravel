@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Discussion;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('forum');
+        $discussions = Discussion::orderBy('created_at','desc')->paginate(3);
+        return view('forum')->with('discussions',$discussions);
     }
 }
