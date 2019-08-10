@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Reply;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use App\Discussion;
+use Illuminate\Support\Facades\Notification;
 use Session;
 
 class DiscussionController extends Controller
@@ -64,11 +66,11 @@ class DiscussionController extends Controller
         $watchers = array();
 
         foreach ($d->watchers as $watcher):
-            $wat_user_id = User::find($watcher->user_id);
-            array_push($watchers, $wat_user_id);
+            array_push($watchers, User::find($watcher->user_id));
         endforeach;
 
-        dd($watchers);
+        //send notifications to watchers' mails
+        Notification::send($watchers, new \App\Notifications\NewReplyAdded($d));
 
         Session::flash('success', 'Reply Added');
 

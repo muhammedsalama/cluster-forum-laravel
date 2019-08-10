@@ -9,6 +9,9 @@ use Illuminate\Notifications\Messages\MailMessage;
 
 class NewReplyAdded extends Notification
 {
+
+    public $discussion;
+
     use Queueable;
 
     /**
@@ -16,9 +19,9 @@ class NewReplyAdded extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($d)
     {
-        //
+        $this->discussion = $d;
     }
 
     /**
@@ -41,8 +44,9 @@ class NewReplyAdded extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->greeting('Hello from Cluster')
                     ->line('New Reply left on the discussion you are watching.')
-                    ->action('View Discussion', url('/'))
+                    ->action('View Discussion',route('discussion',['slug'=>$this->discussion->slug]))
                     ->line('Thank you for using our application!');
     }
 
