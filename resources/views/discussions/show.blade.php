@@ -7,7 +7,7 @@
     <div class="card">
         <div class="card-header">
             <img src="{{$disc->user->avatar}}" alt="avatar" width="45px" height="45px">&nbsp;
-            <span>{{$disc->user->name}} , <b>{{$disc->created_at->diffForHumans()}}</b>  </span>
+            <span>{{$disc->user->name}} , <b>{{$disc->created_at->diffForHumans()}}</b> <b>({{$disc->user->points}} pts)</b>  </span>
 
             @if($disc->is_being_watched_by_auth_user())
                 <a href="{{route('discussion.unwatch',['disc_id'=>$disc->id])}}" class="btn btn-sm float-right">unwatch</a>
@@ -30,7 +30,7 @@
                 <div class="text-center" style="padding: 30px;">
                     <div class="card card-header alert-success">
                         <div class="h3">BEST ANSWER</div>
-                        <div><img src="{{$best_answer->user->avatar}}" alt="avatar" width="45px" height="45px">&nbsp</div>
+                        <div><img src="{{$best_answer->user->avatar}}" alt="avatar" width="45px" height="45px">&nbsp</div><b>({{$best_answer->user->points}} pts)</b>
                         <span>{{$best_answer->user->name}}  </span>
                     </div>
                     <div class="card card-body">
@@ -55,7 +55,7 @@
         <div class="card">
             <div class="card-header">
                 <img src="{{$reply->user->avatar}}" alt="avatar" width="45px" height="45px">&nbsp;
-                <span>{{$reply->user->name}} , <b>{{$reply->created_at->diffForHumans()}}</b> </span>
+                <span>{{$reply->user->name}} , <b>{{$reply->created_at->diffForHumans()}}</b><b> ({{$reply->user->points}} pts)</b> </span>
 
                 @if(!$best_answer)
                     <a href="{{route('best_answer',['reply_id'=>$reply->id])}}" class="btn btn-sm btn-info float-right">Mark as best answer</a>

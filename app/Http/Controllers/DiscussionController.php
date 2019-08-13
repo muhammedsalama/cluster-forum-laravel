@@ -60,11 +60,14 @@ class DiscussionController extends Controller
         $d = Discussion::find($id);
 
 
-        Reply::create([
+        $reply =  Reply::create([
             'user_id' => Auth::id(),
             'discussion_id' => $id,
             'content' => $request->reply
         ]);
+
+        $reply->user->points += 25;
+        $reply->user->save();
 
 
         $watchers = array();
