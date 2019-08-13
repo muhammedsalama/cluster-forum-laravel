@@ -77,6 +77,11 @@ Route::group(['middleware'=>'auth'],function (){
        'as'=>'discussion.unwatch'
     ]);
 
+    Route::get('/reply/mark-best-answer/{reply_id}',[
+       'uses'=>'RepliesController@mark_as_best_answer',
+       'as'=>'best_answer'
+    ]);
+
 
 });
 

@@ -23,6 +23,22 @@
             <p class="card-text text-center">
                 {{$disc->content}}
             </p>
+
+            <hr>
+
+            @if($best_answer)
+                <div class="text-center" style="padding: 30px;">
+                    <div class="card card-header alert-success">
+                        <div class="h3">BEST ANSWER</div>
+                        <div><img src="{{$best_answer->user->avatar}}" alt="avatar" width="45px" height="45px">&nbsp</div>
+                        <span>{{$best_answer->user->name}}  </span>
+                    </div>
+                    <div class="card card-body">
+                        {{$best_answer->content}}
+                    </div>
+                </div>
+            @endif
+
         </div>
         <div class="card-footer">
             @if($disc->replies->count() == 1)
@@ -40,6 +56,11 @@
             <div class="card-header">
                 <img src="{{$reply->user->avatar}}" alt="avatar" width="45px" height="45px">&nbsp;
                 <span>{{$reply->user->name}} , <b>{{$reply->created_at->diffForHumans()}}</b> </span>
+
+                @if(!$best_answer)
+                    <a href="{{route('best_answer',['reply_id'=>$reply->id])}}" class="btn btn-sm btn-info float-right">Mark as best answer</a>
+                @endif
+
             </div>
             <div class="card-body">
                 <p class="card-text text-center">
