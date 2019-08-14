@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 
+use App\Notifications\NewReplyAdded;
 use App\Reply;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use App\Discussion;
 use Illuminate\Support\Facades\Notification;
-use Session;
+
 
 class DiscussionController extends Controller
 {
@@ -37,7 +38,7 @@ class DiscussionController extends Controller
             'slug' => str_slug($r->title)
         ]);
 
-        Session::flash('success', 'Discussion Created');
+        session()->flash('success', 'Discussion Created');
 
         return redirect()->route('discussion', ['slug' => $discussion->slug]);
 
@@ -77,9 +78,9 @@ class DiscussionController extends Controller
         endforeach;
 
         //send notifications to watchers' mails
-        Notification::send($watchers, new \App\Notifications\NewReplyAdded($d));
+        Notification::send($watchers, new NewReplyAdded($d));
 
-        Session::flash('success', 'Reply Added');
+        session()->flash('success', 'Reply Added');
 
         return redirect()->back();
     }

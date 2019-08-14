@@ -17,7 +17,7 @@ class RepliesController extends Controller
             'user_id'=>Auth::id()
 
         ]);
-        Session::flash('success,Reply liked');
+        session()->flash('success,Reply liked');
         return redirect()->back();
     }
 
@@ -25,7 +25,7 @@ class RepliesController extends Controller
         $like = Like::where('reply_id',$id)->where('user_id',Auth::id())->first();
 
         $like->delete();
-        Session::flash('success,Reply Disliked');
+        session()->flash('success,Reply Disliked');
         return redirect()->back();
 
     }
@@ -39,7 +39,7 @@ class RepliesController extends Controller
         $reply->user->points += 50;
         $reply->user->save();
 
-        Session::flash('success','Marked as best answer');
+        session()->flash('success','Marked as best answer');
 
         return redirect()->back();
     }
