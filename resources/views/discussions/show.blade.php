@@ -9,6 +9,12 @@
             <img src="{{$disc->user->avatar}}" alt="avatar" width="45px" height="45px">&nbsp;
             <span>{{$disc->user->name}} , <b>{{$disc->created_at->diffForHumans()}}</b> <b>({{$disc->user->points}} pts)</b>  </span>
 
+            @if($disc->has_best_answer($disc->id))
+                <span class="btn btn-success btn-sm float-right">closed</span>
+            @else
+                <span class="btn btn-info btn-sm float-right">open</span>
+            @endif
+
             @if($disc->is_being_watched_by_auth_user())
                 <a href="{{route('discussion.unwatch',['disc_id'=>$disc->id])}}"
                    class="btn btn-sm float-right">unwatch</a>
