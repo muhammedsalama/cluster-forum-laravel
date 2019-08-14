@@ -8,6 +8,11 @@
             <div class="card-header">
                 <img src="{{$disc->user->avatar}}" alt="avatar" width="45px" height="45px">&nbsp;
                 <span>{{$disc->user->name}} , <b>{{$disc->created_at->diffForHumans()}}</b>  </span>
+                @if($disc->has_best_answer($disc->id))
+                    <span class="btn btn-success btn-sm float-right">CLOSED</span>
+                @else
+                    <span class="btn btn-info btn-sm float-right">OPEN</span>
+                @endif
                 <a href="{{route('discussion',['slug'=>$disc->slug])}}" class="btn float-sm-right">view</a>
             </div>
             <div class="card-body">
