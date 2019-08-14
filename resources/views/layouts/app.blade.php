@@ -89,6 +89,9 @@
                     <div class="card-body">
                         <ul class="list-group">
                             <li class="list-group-item"><a href="/forum" style="text-decoration: none">Home</a></li>
+                            <li class="list-group-item"><a href="/forum?filter=me" style="text-decoration: none">My Discussion</a></li>
+                            <li class="list-group-item"><a href="/forum?filter=solved" style="text-decoration: none">Closed Discussions</a></li>
+                            <li class="list-group-item"><a href="/forum?filter=unsolved" style="text-decoration: none">Open Discussions</a></li>
                         </ul>
                     </div>
                 </div>
